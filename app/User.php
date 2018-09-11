@@ -1,6 +1,6 @@
 <?php
 
-namespace Mundo dos Rabiscos;
+namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

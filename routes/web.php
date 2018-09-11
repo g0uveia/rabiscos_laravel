@@ -11,5 +11,6 @@
 |
 */
 
-Route::get('/', 'UrlController@root');
-Route::get('/feed', 'UrlController@feed');
+Route::get('/', function () {
+    return view('welcome');
+});

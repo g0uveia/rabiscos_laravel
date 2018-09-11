@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Mundo dos Rabiscos\User::class,
+            'model' => App\User::class,
         ],
 
         // 'users' => [

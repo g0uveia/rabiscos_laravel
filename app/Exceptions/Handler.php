@@ -1,6 +1,6 @@
 <?php
 
-namespace Mundo dos Rabiscos\Exceptions;
+namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

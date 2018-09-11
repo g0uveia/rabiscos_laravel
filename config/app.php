@@ -154,11 +154,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Mundo dos Rabiscos\Providers\AppServiceProvider::class,
-        Mundo dos Rabiscos\Providers\AuthServiceProvider::class,
-        // Mundo dos Rabiscos\Providers\BroadcastServiceProvider::class,
-        Mundo dos Rabiscos\Providers\EventServiceProvider::class,
-        Mundo dos Rabiscos\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 
