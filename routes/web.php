@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function() {
-    return redirect('/feed');
-});
+Route::get('/', 'UrlController@root');
 
 Route::get('/feed', 'PostsController@index');
 Route::post('/feed', 'PostsController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

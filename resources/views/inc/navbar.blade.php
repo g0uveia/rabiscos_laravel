@@ -3,6 +3,13 @@
         <!-- Logo -->
         <a href="/" class="navbar-brand">Mundo do Rabisco</a>
 
+        @guest
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item "><a class="nav-link" href="{{route('login')}}">Login</a></li>
+                <li class="nav-item ml-3"><a class="nav-link" href="{{route('register')}}">Register</a></li>
+            </ul>
+        @else
+
         <!-- Barra de Pesquisa -->
         <form class="ml-auto rb-barra-pesquisa">
             <div class="input-group">
@@ -35,39 +42,16 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Configurações</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Sair</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">Sair</a>
                 </div>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
         </ul>
-
+        @endguest
     </div>
 </nav>
-
-<style>
-    .rb-barra-pesquisa {
-        width: 30%;
-    }
-    .rb-barra-pesquisa div {
-        height: 2.5em;
-    }
-    .rb-perfil-link {
-        color: #DDD;
-    }
-    .rb-perfil-link:hover {
-        color: #BBB;
-        text-decoration: none;
-    }
-    .rb-perfil-img {
-        max-height: 35px;
-        border-radius: 50%;
-    }
-
-
-    .dropdown:hover > .dropdown-menu {
-        display: block;
-    }
-    .dropdown-toggle::after {
-        display:none;
-    }
-
-</style>

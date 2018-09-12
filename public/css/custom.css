@@ -1,0 +1,39 @@
+.body {
+  background: url("../img/bg.jpg");
+}
+.rb-barra-pesquisa {
+    width: 30%;
+}
+.rb-barra-pesquisa div {
+    height: 2.5em;
+}
+.rb-perfil-link {
+    color: #DDD;
+}
+.rb-perfil-link:hover {
+    color: #BBB;
+    text-decoration: none;
+}
+.rb-perfil-img {
+    max-height: 35px;
+    border-radius: 50%;
+}
+.rb-post-header, .rb-post-footer {
+    padding: .75rem 1.25rem;
+}
+.rb-post-body {
+    flex: 1 1 auto;
+    padding: 1.25rem 2.5rem;
+}
+.rb-post-footer {
+    display: flex;
+    padding: .75rem 2rem;
+    justify-content: space-around;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown-toggle::after {
+    display:none;
+}

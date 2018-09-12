@@ -9,13 +9,8 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderby('created_at', 'desc')->get();
         return view('feed')->with('posts', $posts);
-    }
-
-    public function create()
-    {
-        //
     }
 
     public function store(Request $request)
@@ -29,11 +24,6 @@ class PostsController extends Controller
         $post->save();
 
         return redirect('/feed')->with('success', 'Seu post foi publicado');
-    }
-
-    public function show($id)
-    {
-        //
     }
 
     public function edit($id)
