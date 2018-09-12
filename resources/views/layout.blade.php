@@ -12,8 +12,8 @@
         @include('inc.navbar')
 
         <!-- Conteúdo da Página -->
-        <main class="mt-4">
-            <section>
+        <main class="mt-5">
+            <section class="container">
                 @yield('conteudo')
             </section>
         </main>

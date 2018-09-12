@@ -11,5 +11,9 @@
 |
 */
 
-Route::get('/', 'UrlController@root');
-Route::get('/feed', 'UrlController@feed');
+Route::get('/', function() {
+    return redirect('/feed');
+});
+
+Route::get('/feed', 'PostsController@index');
+Route::post('/feed', 'PostsController@store');
