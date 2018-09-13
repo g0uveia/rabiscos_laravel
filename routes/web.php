@@ -16,6 +16,8 @@ Route::get('/', 'UrlController@root');
 Route::get('/feed', 'PostsController@index');
 Route::post('/feed', 'PostsController@store');
 
+Route::get('user/{id}', 'UserController@show');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

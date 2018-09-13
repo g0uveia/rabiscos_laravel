@@ -14,4 +14,5 @@ class UrlController extends Controller
             return redirect('feed');
         }
     }
+
 }

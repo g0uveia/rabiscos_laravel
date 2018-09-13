@@ -11,7 +11,7 @@
                     @foreach ($posts as $post)
                         <div class="card mb-4 rb-post">
                             <div class="rb-post-header">
-                                <a class="" href="#">
+                                <a class="" href="user/{{$post->user->id}}">
                                     <img class="rb-perfil-img mr-2" src="{{asset('img/noimage.jpg')}}" alt="user">
                                     <span class="">{{$post->user->name}}</span>
                                 </a>
