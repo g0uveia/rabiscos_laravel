@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('estilos_adicionais')
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
+@endsection
+
 @section('conteudo')
 <div class="container">
     <div class="row justify-content-center">

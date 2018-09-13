@@ -25,7 +25,7 @@
         <!-- Perfil -->
         <a class="rb-perfil-link ml-auto" href="#">
             <img class="rb-perfil-img mr-2" src="{{asset('img/noimage.jpg')}}" alt="user">
-            <span class="rb-perfil-span">Nome de usuário</span>
+            <span class="rb-perfil-span">{{Auth::user()->name}}</span>
         </a>
 
         <!-- Icones  -->

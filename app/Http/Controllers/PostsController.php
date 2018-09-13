@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -21,6 +22,7 @@ class PostsController extends Controller
 
         $post = new Post;
         $post->body = $request->post_text;
+        $post->user_id = Auth::user()->id;
         $post->save();
 
         return redirect('/feed')->with('success', 'Seu post foi publicado');

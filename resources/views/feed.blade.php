@@ -13,8 +13,10 @@
                             <div class="rb-post-header">
                                 <a class="" href="#">
                                     <img class="rb-perfil-img mr-2" src="{{asset('img/noimage.jpg')}}" alt="user">
-                                    <span class="">Nome de usuário</span>
+                                    <span class="">{{$post->user->name}}</span>
                                 </a>
+
+                                <small>| {{$post->created_at}}</small>
                             </div>
                             <div class="rb-post-body">
                                 <p class="card-text">{{$post->body}}</p>
