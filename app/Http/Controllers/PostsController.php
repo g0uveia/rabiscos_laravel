@@ -11,7 +11,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderby('created_at', 'desc')->get();
-        return view('feed')->with('posts', $posts);
+        return view('post.index')->with('posts', $posts);
     }
 
     public function store(Request $request)
@@ -22,7 +22,7 @@ class PostsController extends Controller
 
         $post = new Post;
         $post->body = $request->post_text;
-        $post->user_id = Auth::user()->id;
+        $post->user_username = Auth::user()->username;
         $post->save();
 
         return redirect('/feed')->with('success', 'Seu post foi publicado');

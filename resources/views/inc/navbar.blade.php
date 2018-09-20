@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
         <!-- Logo -->
-        <a href="/" class="navbar-brand">Mundo do Rabisco</a>
+        <a href="{{route('feed')}}" class="navbar-brand">Mundo do Rabisco</a>
 
         @guest
             <ul class="navbar-nav ml-auto">
@@ -23,7 +23,7 @@
         </form>
 
         <!-- Perfil -->
-        <a class="rb-perfil-link ml-auto" href="user/{{Auth::user()->id}}">
+        <a class="rb-perfil-link ml-auto" href="{{route('user', ['username' => Auth::id()])}}">
             <img class="rb-perfil-img mr-2" src="{{asset('img/noimage.jpg')}}" alt="user">
             <span class="rb-perfil-span">{{Auth::user()->name}}</span>
         </a>

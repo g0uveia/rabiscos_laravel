@@ -13,11 +13,12 @@
 
 Route::get('/', 'UrlController@root');
 
-Route::get('/feed', 'PostsController@index');
+Route::get('/feed', 'PostsController@index') -> name('feed');
 Route::post('/feed', 'PostsController@store');
 
-Route::get('user/{id}', 'UserController@show');
+Route::get('/user/{username}', 'UserController@show') -> name('user');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/{username}/portfolios', 'portfolioController@index') -> name('user.portfolios');
+Route::post('/user/', 'portfolioController@store');

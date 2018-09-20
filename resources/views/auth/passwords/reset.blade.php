@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('estilos_adicionais')
+@section('head')
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
 @endsection
 

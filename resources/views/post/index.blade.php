@@ -4,14 +4,14 @@
     <div class="row">
         <div class="col-md-8">
             @include('inc.messages')
-            @include('inc.postbox')
+            @include('post.create')
 
             <section class="mt-5">
                 @if(count($posts) > 0)
                     @foreach ($posts as $post)
                         <div class="card mb-4 rb-post">
                             <div class="rb-post-header">
-                                <a class="" href="user/{{$post->user->id}}">
+                                <a class="" href="{{route("user", ['id' => $post->user])}}">
                                     <img class="rb-perfil-img mr-2" src="{{asset('img/noimage.jpg')}}" alt="user">
                                     <span class="">{{$post->user->name}}</span>
                                 </a>

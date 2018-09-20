@@ -10,13 +10,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $primaryKey = 'username'; // or null
+
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'name', 'email', 'password',
     ];
 
     /**
@@ -31,7 +35,7 @@ class User extends Authenticatable
     public function posts() {
         return $this->hasMany('App\Post');
     }
-    public function portifolios() {
-        return $this->hasMany('App\Portifolio');
+    public function portfolios() {
+        return $this->hasMany('App\portfolio');
     }
 }
