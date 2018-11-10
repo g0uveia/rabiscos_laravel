@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUsernameToUsers extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddUsernameToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function ($table)
-        {
-            $table->string('username')->primary('username');
+        Schema::create('likes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->string('user_username'); // on user table
+            $table->string('post_id'); // on post table
         });
     }
 
@@ -26,9 +28,6 @@ class AddUsernameToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function ($table)
-        {
-            $table->dropColumn('username');
-        });
+        Schema::dropIfExists('likes');
     }
 }

@@ -24,7 +24,7 @@
 
         <!-- Perfil -->
         <a class="rb-perfil-link ml-auto" href="{{route('user', ['username' => Auth::id()])}}">
-            <img class="rb-perfil-img mr-2" src="{{asset('img/noimage.jpg')}}" alt="user">
+            <img class="rb-perfil-img mr-2 bg-white" src="{{Storage::url(Auth::user()->img_path)}}" alt="user">
             <span class="rb-perfil-span">{{Auth::user()->name}}</span>
         </a>
 

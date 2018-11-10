@@ -1,0 +1,43 @@
+TODO:
+    Usuário:
+        ✔ Mostrar username no perfil  @done(2018-09-20 09:04) @project(TODO)
+        ✔ Sistema e página de editar perfil @done(2018-10-05 16:10) @project(TODO)
+        ✔ Melhorar views de login/registro @done(2018-10-08 17:19) @project(TODO)
+        ✔ Permitir bio null @done(2018-11-06 18:54) @project(TODO / Usuário)
+        ✔ Consertar modelo e migrations para username @done(2018-11-06 19:01) @project(TODO / Usuário)
+        ✔ Permitir upload de foto de perfil @done(2018-11-07 18:37) @project(TODO / Usuário)
+        ✔ Definir imagem padrão @done(2018-11-08 15:31) @project(TODO / Usuário)
+        ☐ Cortar imagem no upload
+        ☐ Sistema de seguir
+        ☐ Coleções (imagens salvas)
+    Posts:
+        ☐ Sistema de likes
+            ✔  Permitir que usuário curta post @done(2018-11-06 18:53) @project(TODO / Posts)
+            ✔  Curtir na página de perfil @done(2018-11-07 19:05) @project(TODO / Posts)
+            ☐  Mostrar lista de usuarios que curtiram
+        ☐ Sistema de comentários
+    Portfolio:
+        ✔ Permitir descricao null @done(2018-11-06 18:54) @project(TODO / Portfolio)
+        ✔ Criar página individual de portfólio @done(2018-11-07 16:59) @project(TODO / Portfolio)
+        ☐ Permitir upload de fotos a portfólio
+        ☐ Adicionar card de criador e última modificação na pagina individual
+        ☐ Adicionar visualização de lista
+        ☐ Editar Portfólio
+        ☐ Deletar Portfólio
+        ☐ Link para portfólio no post de criação
+        ☐ Resumo de portfólio no post de criação
+    Geral:
+        ☐ Manutenção Responsividade
+        ☐ Alinhar conteudo da navbar no meio
+        ☐ Converter horário UTC para local
+        ☐ Traduzir nomes dos meses
+        ☐ Tradução PT - EN
+    Segurança:
+        ☐ Middlewares
+        ☐ Esconder ids de auto increment (post e portfolio)
+        ☐ Criptografar javascript e css
+
+
+BUG TRACK:
+    ✔ Reload em criar portfólio @done(2018-11-06 18:45) @project(BUG TRACK)
+    ✔ Email duplicado em editar perfil @done(2018-11-06 19:28) @project(BUG TRACK)

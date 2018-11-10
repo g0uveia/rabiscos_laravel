@@ -19,8 +19,7 @@ class portfolioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'titulo' => 'required',
-            'descricao' => 'required'
+            'titulo' => 'required'
         ]);
 
         $portfolio = new portfolio;
@@ -34,12 +33,13 @@ class portfolioController extends Controller
         $post->body = "Criou um novo portifólio chamado " . $portfolio->titulo;
         $post->save();
 
-        return redirect('/user/'.Auth::user()->username)->with('success', 'Seu portfolio foi criado');
+        return back()->with('success', 'Seu portfolio foi criado');
     }
 
-    public function show(portfolio $portfolio)
+    public function show($id_portfolio)
     {
-        //
+        $portfolio = Portfolio::find($id_portfolio);
+        return view('portfolio.show', ['portfolio' => $portfolio]);
     }
 
     public function update(Request $request, portfolio $portfolio)

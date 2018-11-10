@@ -11,14 +11,23 @@
 |
 */
 
-Route::get('/', 'UrlController@root');
+Route::get('/', 'PostsController@index') -> middleware('auth') -> name('feed');
+Route::post('/', 'PostsController@store');
 
-Route::get('/feed', 'PostsController@index') -> name('feed');
-Route::post('/feed', 'PostsController@store');
-
-Route::get('/user/{username}', 'UserController@show') -> name('user');
+Route::get('/profile/{username}', 'UserController@show') -> name('user');
+Route::put('/profile/{username}', 'UserController@update');
+Route::get('/profile/edit/{username}', 'UserController@edit') -> name('user.edit');
 
 Auth::routes();
 
-Route::get('/user/{username}/portfolios', 'portfolioController@index') -> name('user.portfolios');
-Route::post('/user/', 'portfolioController@store');
+Route::get('/portfolios/{username}', 'portfolioController@index') -> name('user.portfolios');
+Route::post('/profile', 'portfolioController@store');
+
+Route::post('/like', 'PostsController@likePost')->name('like');
+Route::post('/likes', 'PostsController@getLikes')->name('get_like');
+
+Route::get('/portfolio/{id_portifolio}', 'portfolioController@show')->name('portfolio');
+
+Route::get('/test', function(){
+    return view('test');
+});

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card border-0">
     <div class="card-body">
 
         {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST']) !!}

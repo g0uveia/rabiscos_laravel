@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateportfolioTable extends Migration
+class AddUsernameToUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateportfolioTable extends Migration
      */
     public function up()
     {
-        Schema::create('portfolios', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id');
-            $table->string('titulo');
-            $table->mediumText('descricao');
-            $table->timestamps();
+        Schema::table('users', function ($table)
+        {
+            $table->string('username');
+            $table->primary('username');
         });
     }
 
@@ -29,6 +27,9 @@ class CreateportfolioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portfolio');
+        Schema::table('users', function ($table)
+        {
+            $table->drop('username');
+        });
     }
 }

@@ -14,13 +14,17 @@ class User extends Authenticatable
 
     public $incrementing = false;
 
+    protected $attributes = [
+       'img_path' => 'public/profile-imgs/noimage.jpg'
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'username', 'name', 'email', 'password',
+        'username', 'name', 'email', 'password', 'bio'
     ];
 
     /**
@@ -32,10 +36,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function posts() {
+    public function posts()
+    {
         return $this->hasMany('App\Post');
     }
-    public function portfolios() {
+    public function portfolios()
+    {
         return $this->hasMany('App\portfolio');
+    }
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
     }
 }
