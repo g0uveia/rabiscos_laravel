@@ -1,5 +1,13 @@
 @extends('layout')
 
+@section('head')
+    <script>
+        function tagListItem(value, url) {
+            return '<li><a href="' + url + '"><small>@' + value + '</small></a></li>';
+        }
+    </script>
+@endsection
+
 @section('conteudo')
     <div class="row">
         <div class="col-md-8">
@@ -22,19 +30,32 @@
                                 <p class="card-text">{{$post->body}}</p>
                             </div>
                             <div class="rb-post-footer">
-                                <a href="#" class="rb-like-button">
-                                    <i class="material-icons align-middle medium text-muted">
-                                        {{ count(Auth::user()->likes->where('post_id', $post->id)) == 0 ? 'favorite_border' : 'favorite'}}
-                                    </i>
-                                    <span>
-                                        <?php
-                                            $num_likes = count($post->likes);
-                                            if ($num_likes > 0) {
-                                                echo '<small class="align-middle text-muted">'. $num_likes .'</small>';
-                                            }
-                                        ?>
-                                    </span>
-                                </a>
+                                <span class="rb-like">
+                                    <a href="#" class="rb-like-button">
+                                        <i class="material-icons align-middle medium {{ count(Auth::user()->likes->where('post_id', $post->id)) == 0 ? 'text-muted' : '' }}">
+                                            {{ count(Auth::user()->likes->where('post_id', $post->id)) == 0 ? 'favorite_border' : 'favorite'}}
+                                        </i>
+                                        <span>
+                                            <?php
+                                                $num_likes = count($post->likes);
+                                                if ($num_likes > 0) {
+                                                    echo '<small class="align-middle text-muted">'. $num_likes .'</small>';
+                                                }
+                                            ?>
+                                        </span>
+                                    </a>
+                                    <div class="rb-post-like-list card">
+                                        <div class="card-body">
+                                            <ul>
+                                                @foreach ($post->likes as $like)
+                                                    <script>
+                                                        document.write(tagListItem('{{$like->user->username}}', '{{route("user", ['id' => $like->user])}}'));
+                                                    </script>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
                                 <a href="#"><i class="material-icons align-middle text-muted">chat_bubble_outline</i></a>
                             </div>
                         </div>

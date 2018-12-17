@@ -1,18 +1,29 @@
 
 $(document).ready(function() {
     function refreshLikes(elem) {
+        console.log(elem);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            async: false
+            }
         });
         $.post({
             url: urlGetLikes,
-            data: {post_id: elem.parent().parent().parent().data('postid'), _token: token}
+            data: {post_id: elem.parent().parent().parent().parent().data('postid'), _token: token}
         })
         .always(function (data) {
-            elem.next().html(JSON.parse(data).response);
+            console.log(data);
+            json = JSON.parse(data);
+            elem.next().html(json.num_likes);
+            console.log(json);
+            list = '';
+            for (i = 0; i < json.user_list.length; i++) {
+                user = json.user_list[i];
+                console.log(user);
+                list += tagListItem(user['username'], user['url']);
+            }
+
+            elem.parent().next().find('ul').html(list);
         });
     }
 
@@ -20,11 +31,20 @@ $(document).ready(function() {
         $('.rb-like-button i').each(function() {
             refreshLikes($(this));
         });
-    }, 5000);
+    }, 1000000);
 
-    $('.rb-like-button').on('click', function (event) {
+    $('.rb-like').hover(function () {
+        if (true)
+            $(this).children('.rb-post-like-list').css('display', 'block');
+    }, function () {
+        $(this).children('.rb-post-like-list').css('display', 'none');
+    });
+
+    $('.rb-like-button').click(function () {
         event.preventDefault();
-        postId = event.target.parentNode.parentNode.parentNode.dataset['postid'];
+    })
+    $('.rb-like-button i').on('click', function (event) {
+        postId = event.target.parentNode.parentNode.parentNode.parentNode.dataset['postid'];
 
         $.ajaxSetup({
           headers: {
@@ -38,10 +58,14 @@ $(document).ready(function() {
             data: {postId: postId, _token: token},
             complete: function(data) {
                 console.log(data.responseText);
-                if (data.responseText === 'like')
+                if (data.responseText === 'like') {
                     event.target.innerText = 'favorite';
-                else if (data.responseText === 'dislike')
+                    $(event.target).removeClass('text-muted');
+                }
+                else if (data.responseText === 'dislike') {
                     event.target.innerText = 'favorite_border';
+                    $(event.target).addClass('text-muted');
+                }
 
                 refreshLikes($(event.target));
             }

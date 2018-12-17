@@ -14,7 +14,7 @@ TODO:
         ☐ Sistema de likes
             ✔  Permitir que usuário curta post @done(2018-11-06 18:53) @project(TODO / Posts)
             ✔  Curtir na página de perfil @done(2018-11-07 19:05) @project(TODO / Posts)
-            ☐  Mostrar lista de usuarios que curtiram
+            ✔  Mostrar lista de usuarios que curtiram @done(2018-11-10 08:52) @project(TODO / Posts)
         ☐ Sistema de comentários
     Portfolio:
         ✔ Permitir descricao null @done(2018-11-06 18:54) @project(TODO / Portfolio)

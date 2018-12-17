@@ -120,8 +120,8 @@
     padding: .75rem 2.5rem;
 }
 
-.rb-post-footer a {
-    margin-right: 2rem;
+.rb-post-footer > a {
+    margin-left: 2rem;
 }
 
 .rb-post-footer i {
@@ -132,6 +132,21 @@
     padding: .75rem 1.25rem;
 }
 
+.rb-post-like-list {
+    position: absolute;
+    z-index: 99;
+    display: none;
+}
+
+.rb-post-like-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rb-post-like-list .card-body {
+    padding: .75rem;
+}
 #rb-profile-cover {
     display: none;
     background: rgba(0, 0, 0, 0.5);
@@ -151,6 +166,14 @@
 
 #rb-profile-label-add-img {
     position: relative;
+}
+
+.rb-like-button {
+    color: #DB3232;
+}
+
+.rb-like-button:hover {
+    color: #C92E3E;
 }
 
 .rb-profile-link a:hover, .rb-portfolio a:hover, .rb-post-footer a:hover {
