@@ -2,8 +2,8 @@
 
 @section('head')
     <script>
-        function tagListItem(value, url) {
-            return '<li><a href="' + url + '"><small>@' + value + '</small></a></li>';
+        function tagListItem(value, url, img) {
+            return '<li><a href="' + url + '"><img class="rounded-circle" style="max-width: 1.5rem; margin-right:.5rem" src="' + img + '" alt="" /><small style="line-height:2rem;">@' + value + '</small></a></li>';
         }
     </script>
 @endsection
@@ -44,17 +44,20 @@
                                             ?>
                                         </span>
                                     </a>
-                                    <div class="rb-post-like-list card">
-                                        <div class="card-body">
-                                            <ul>
-                                                @foreach ($post->likes as $like)
-                                                    <script>
-                                                        document.write(tagListItem('{{$like->user->username}}', '{{route("user", ['id' => $like->user])}}'));
-                                                    </script>
-                                                @endforeach
-                                            </ul>
+                                    @if (count($post->likes) > 0)
+                                        <div class="rb-post-like-list card">
+                                            <div class="card-body">
+                                                <ul>
+                                                    @foreach ($post->likes as $like)
+                                                        <script>
+                                                        console.log('{{Storage::url($like->user->img_path)}}');
+                                                            document.write(tagListItem('{{$like->user->username}}', '{{route("user", ['id' => $like->user])}}', '{{Storage::url($like->user->img_path)}}'));
+                                                        </script>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </span>
                                 <a href="#"><i class="material-icons align-middle text-muted">chat_bubble_outline</i></a>
                             </div>

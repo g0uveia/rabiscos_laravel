@@ -55,13 +55,14 @@ class PostsController extends Controller
         $post = Post::find($post_id);
         $num_likes = count($post->likes);
         $user_list = [];
+
         foreach ($post->likes as $like) {
-            $user_list[] = ['username' => $like->user->username, 'url' => route('user', ['id' => $like->user])];
+            $user_list[] = ['username' => $like->user->username, 'url' => route('user', ['id' => $like->user]), 'img_path' => Storage::url($like->user->img_path)];
         }
 
         if ($num_likes > 0) {
             header('Content-Type: application/json');
-            return json_encode(['num_likes' => '<small class="align-middle text-muted">'. $num_likes .'</small>', 'user_list' => $user_list]);
+            return json_encode(['num_likes' => $num_likes, 'user_list' => $user_list]);
         }
 
         return json_encode(['num_likes' => '', 'user_list' => $user_list]);

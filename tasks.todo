@@ -15,6 +15,10 @@ TODO:
             ✔  Permitir que usuário curta post @done(2018-11-06 18:53) @project(TODO / Posts)
             ✔  Curtir na página de perfil @done(2018-11-07 19:05) @project(TODO / Posts)
             ✔  Mostrar lista de usuarios que curtiram @done(2018-11-10 08:52) @project(TODO / Posts)
+                ✔ Mostrar foto na lista de usuários @done(2018-12-17 12:07) @project(TODO / Posts)
+                ✔ Bug: lista aparece mesmo quando vazia @done(2018-12-17 12:07) @project(TODO / Posts)
+                ☐ Limitar numero de usuarios e criar modal que mostra todas as curtidas
+                    ☐  Filtrar por nome
         ☐ Sistema de comentários
     Portfolio:
         ✔ Permitir descricao null @done(2018-11-06 18:54) @project(TODO / Portfolio)
@@ -27,6 +31,7 @@ TODO:
         ☐ Link para portfólio no post de criação
         ☐ Resumo de portfólio no post de criação
     Geral:
+        ☐ Rebrand visual
         ☐ Manutenção Responsividade
         ☐ Alinhar conteudo da navbar no meio
         ☐ Converter horário UTC para local
