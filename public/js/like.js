@@ -8,11 +8,10 @@ $(document).ready(function() {
         });
         $.post({
             url: urlGetLikes,
-            data: {post_id: elem.parent().parent().parent().parent().data('postid'), _token: token}
+            data: {postId: elem.parent().parent().parent().parent().data('postid'), _token: token}
         })
         .always(function (data) {
             json = JSON.parse(data);
-            console.log(json);
             elem.next().html('<small class="align-middle text-muted">' + json.num_likes + '</small>');
             num_likes = parseInt(json.num_likes);
             container_list_elem = elem.parent().next(".rb-post-like-list");

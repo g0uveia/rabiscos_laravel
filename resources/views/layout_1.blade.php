@@ -10,16 +10,25 @@
         <script src="{{asset('js/custom.js')}}"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <link rel="stylesheet" href="{{asset('css/login.css')}}">
         @yield('head')
 
         <title>Mundo do Rabisco</title>
     </head>
-    <body>
+    <body class="rb-login-body">
         <!-- Conteúdo da Página -->
         <main class="d-flex align-items-center w-100">
             <section class="container">
-                @yield('conteudo')
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 col-lg-6 col-xl-5">
+                            <div class="card px-3 px-md-4 my-5">
+                                <div class="card-body py-5">
+                                    @yield('conteudo')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </body>

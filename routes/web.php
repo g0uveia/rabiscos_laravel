@@ -27,7 +27,3 @@ Route::post('/like', 'PostsController@likePost')->name('like');
 Route::post('/likes', 'PostsController@getLikes')->name('get_like');
 
 Route::get('/portfolio/{id_portifolio}', 'portfolioController@show')->name('portfolio');
-
-Route::get('/test', function(){
-    return view('test');
-});

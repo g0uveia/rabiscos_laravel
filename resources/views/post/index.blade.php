@@ -9,22 +9,43 @@
 @endsection
 
 @section('conteudo')
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-8">
             @include('inc.messages')
             @include('post.create')
 
-            <section class="mt-5">
+            <section class="mt-3">
                 @if(count($posts) > 0)
                     @foreach ($posts as $post)
-                        <div class="card <?php if(!$loop->last) echo 'mb-4' ?> rb-post" data-postId="{{$post->id}}">
-                            <div class="rb-post-header">
-                                <a class="" href="{{route("user", ['id' => $post->user])}}">
-                                    <img class="rb-perfil-img mr-2" src="{{Storage::url($post->user->img_path)}}" alt="user">
-                                    <span class="">{{$post->user->name}}</span>
+                        <div class="card <?php if(!$loop->last) echo 'mb-3' ?> rb-post" data-postId="{{$post->id}}">
+                            <div class="rb-post-header d-flex align-items-center">
+                                <a class="d-inline-flex align-items-center" href="{{route("user", ['id' => $post->user])}}">
+                                    <img class="rb-perfil-img mr-3 float-left" src="{{Storage::url($post->user->img_path)}}" alt="user">
+                                    <span>{{$post->user->name}}</span>
+                                    <span class="text-muted align-middle">
+                                        <small>
+                                            •
+                                            <?php
+                                                $create_date = new DateTime($post->created_at);
+                                                $now = new DateTime();
+                                                $interval = $create_date->diff($now);
+                                                if ($interval->format('%a') == '0')
+                                                    if ($interval->format('%h') == '0')
+                                                        if ($interval->format('%i') == '0')
+                                                            echo 'now';
+                                                        else
+                                                            echo $interval->format('%im');
+                                                    else
+                                                        echo $interval->format('%hh');
+                                                else
+                                                    if (intval($interval->format('%a')) > 6)
+                                                        echo floor(intval($interval->format('%a')) / 7) . 'w';
+                                                    else
+                                                        echo $interval->format('%ad');
+                                            ?>
+                                        </small>
+                                    </span>
                                 </a>
-
-                                <small>| {{$post->created_at->format('d \d\e M Y \à\s h:m')}}</small>
                             </div>
                             <div class="rb-post-body">
                                 <p class="card-text">{{$post->body}}</p>
